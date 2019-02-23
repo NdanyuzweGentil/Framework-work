@@ -1,0 +1,68 @@
+
+<style>
+h1{
+  text-align:center;
+  color:green;
+}
+.card-img-top{
+  height:200px;
+  weight:250px;
+}
+.card-body{
+   height:200px;
+  weight:100px;
+}
+footer{
+  background: black;
+}
+footer p{
+  text-align:center;
+  color:white;
+}
+</style>
+<div class="container">   
+<% if !flash[:notice].blank? %>   
+   <div>   
+      <%= flash[:notice] %>   
+   </div>   
+<% end %>   
+  <h1><b>JORAH ENTERTAINMENT SITE<b></h1>
+<br>
+<br>   
+  
+<center><b><u><h4><%= link_to "Upload New Movie", new_film_path %></h4></u></b></center>   
+<br>   
+<br>   
+    
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+      <% @films.each do |film| %> 
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+          <img src="<%= film.attachment %>" class="card-img-top" alt="card img cap"> 
+      
+            <div class="card-body">
+              <p class="card-text"><b>Title:</b><%= film.title %><br><b>category:</b><%= film.category %><br><b>Year:</b><%= film.year %><br><b>Price:</b><%= film.price %></p>
+             <b><u><%= link_to "Download", film.attachment_url %></u></b>
+               <b><u><%= link_to "Delete",  film, method: :delete, confirm: "Are you sure you want to delete #{film.attachment}?" %></u></b>
+              </div>
+            </div>
+          </div>
+              <% end %>   
+        </div>
+    
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Movie Album is Full &copy; </p>
+    <p>JORAH ENTERTAINMENT SITE &copy; 2019</p>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+

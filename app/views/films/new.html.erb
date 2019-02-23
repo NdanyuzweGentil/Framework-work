@@ -1,0 +1,46 @@
+<style>
+h1{
+  text-align:center;
+  color:green;
+}
+.container{
+  margin-left:30%;
+   padding-top:30px;
+}
+.container p{
+   padding:-20px; 
+}
+.container label{
+   text-align:center;
+   color:green;
+   padding:-20px;
+}
+.container button{
+   background:green;
+   color:green;
+}
+.buttons p{
+  margin-left:35;
+}
+</style>
+<h1>JORAH ENTERTAINMENT SITE</h1> 
+<div class="container">   
+   <%= form_for @film, html: { multipart: true } do |f| %>   
+      <label><%= f.label :title%> </label>
+      <p><%= f.text_field :title %></p>   
+      <br><br>  
+      <%= f.label :category %>   
+      <p><%= f.text_field :category %> </p>
+      <br><br>  
+      <%= f.label :Release_year %>   
+      <p><%= f.text_field :year %> </p> 
+      <br><br> 
+      <%= f.label :price %>   
+     <p> <%= f.text_field :price %> </p>
+      <br><br> 
+     <%= f.label :attachment %>  
+      <%= f.file_field :attachment %>
+      <br>   
+      <%= f.submit "Save", class: "btn btn-primary" %>
+   <% end %>   
+</div>
